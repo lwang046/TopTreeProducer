@@ -157,7 +157,7 @@ void ElectronAnalyzer::Process(
     if ( gsfTrack.isNonnull() )
     {
       localElectron.setGsfTrackNormalizedChi2(gsfTrack->normalizedChi2());
-      localElectron.setTrackMissingHits(gsfTrack->hitPattern().numberOfHits(reco::HitPattern::MISSING_INNER_HITS));
+      localElectron.setTrackMissingHits(gsfTrack->hitPattern().numberOfAllHits(reco::HitPattern::MISSING_INNER_HITS));
       localElectron.setGsfTrackChi2(gsfTrack->chi2());
       localElectron.setGsfTrackNdof(gsfTrack->ndof());
 

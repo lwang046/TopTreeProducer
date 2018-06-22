@@ -79,10 +79,11 @@ void ParticleTreeDrawer::printDecay( const Candidate & c, const string & pre ) c
   cout << endl;
 
   size_t ndau = c.numberOfDaughters(), validDau = 0;
-  for( size_t i = 0; i < ndau; ++ i )
+  for( size_t i = 0; i < ndau; ++ i ){
     if ( accept( * c.daughter( i ) ) )
       ++ validDau;
-    if ( validDau == 0 ) return;
+  }
+  if ( validDau == 0 ) return;
   
   bool lastLevel = true;
   for( size_t i = 0; i < ndau; ++ i ) {

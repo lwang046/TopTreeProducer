@@ -73,10 +73,11 @@ PhotonAnalyzer::Process (const edm::Event & iEvent, TClonesArray * rootPhotons, 
   iEvent.getByToken (photonToken, patPhotons);
   nPhotons = patPhotons->size ();
 
-  if (verbosity_ > 1)
+  if (verbosity_ > 1){
     std::cout << "   Number of photons = " << nPhotons << "   Label: " << photonProducer_.label () << "   Instance: " << photonProducer_.instance () << std::endl;
+  }
 
-    for (unsigned int j = 0; j < nPhotons; j++)
+  for (unsigned int j = 0; j < nPhotons; j++)
     {
       const pat::Photon*  patPhoton = &((*patPhotons)[j]);//dynamic_cast < const pat::Photon * >(&*photon);
       const reco::Photon* photon = (const reco::Photon *) patPhoton;//(&((*patPhotons)[j]));
